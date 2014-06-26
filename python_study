@@ -1,0 +1,67 @@
+Python学习笔记:
+                                       ************************
+                                       *在python中一切都是对象*
+                                       ************************
+
+1.list & tuple
+    append/index/extend/remove/pop/sort/reverse/insert
+    append和extend都是接受一个参数，区别是extend只接受list，而且会将参数list的元素依次添加到原list中；而append是传什么就原封添加到原list的最后作为一个元素在原list中。
+
+    tuple可以看作是不可变的链表(list),没有list的那些方法，只有index&count两种方法, 所以tuple可以在dict中做key
+
+2. dict
+    1)字典中键值只能是不可变的对象，比如字符串或tuple； list不可作为key ;  字典中的键/值对是无序的；
+    2) dict和list一样，删除某个元素都是用del  # del list[2] or del dict['key']
+
+========================================
+list/tuple/dict/string都是序列，都有索引和切片操作符; 索引可以让我们从序列中抓取一个特定项目，切片可以让我们获得序列的切片，即一部分序列；
+========================================
+
+3. method/class
+   2.1  from collectons import Counter \n c = Counter(list)  \n  c.most_common(element) # Counter类实现了对list中最高频元素的获取；
+
+4. 安装第三方模块(MySQLdb)
+    3.1  先安装setuptool模块
+        # cd /usr/local/src/script/python/module
+        # wget "http://sourceforge.net/projects/mysql-python/files/mysql-python/1.2.3/MySQL-python-1.2.3.tar.gz" 
+        # wget "https://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg#md5=fe1f997bc722265116870bc7919059ea"
+        # sh setuptools-0.6c11-py2.7.egg
+        # tar zxvf MySQL-python-1.2.3.tar.gz
+        # cd MySQL-python-1.2.3
+        # python setup.py build
+        # python setup.py install
+        (如果build时出现pymemcompat.h:10:20: 致命错误： Python.h：没有那个文件或目录，在ubuntu中# apt-get install python-dev , 在redhat中# yum install python-devel)
+    3.2 调用：
+        import MySQLdb 即可
+
+5. print 
+        # print '%5s%10s%15s' % ('hello',4,'world')   #中间的数字用来控制每个元素之间的间距（含元素)
+
+
+6. for/while/break/continue/return
+
+
+7. 复合表达式:
+    复合表达式有很灵活的用法，例如：
+        a =[(cock,hen,chick) for cock in range(1,10) for hen in range(1,15) for chick in range(1,30) if cock*5+hen*3+chick*2 == 100  and chick%3 == 0 and cock+hen+chick=25]
+
+8. string & list
+    a) string->list      #  s.split()
+    b) list  ->string    #  ' '.join(list)
+9. range() & xrange()
+    range函数返回的是一个list， range(i,j)返回i,i+1,...j-1  注意最后一个元素是j-1
+    xrange函数返回的是一个xrange对象
+10. string
+    字符串也是对象，但不可变。 string有很多方法，如upper/lower/find/startswith/endswith等等；
+11. compile python file
+    1) one file
+       # import py_compile
+       # py_compile.compile('/usr/local/src/.../test.py')
+    2) batch compile
+       # import compileall
+       # compileall.compile('/usr/local/src/.../pythondir/')
+12. 文件统计中主要用到的模块
+      from collections import Counter
+      list(tuple)  --->  tuple trans to  list
+      tuple(list)  --->  list  trans to tuple
+     Tuple不可变， 没有list的那些方法（append，index）
