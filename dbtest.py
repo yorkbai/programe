@@ -6,7 +6,7 @@ import MySQLdb
 
 
 try:
-    db= MySQLdb.connect(user='root',db='chinamob',passwd='sun_unix*1101',host='127.0.0.1',charset='utf8')
+    db= MySQLdb.connect(user='root',db='db_name',passwd='*******',host='127.0.0.1',charset='utf8')
 except Exception,e:
     print e
     sys.exit()
